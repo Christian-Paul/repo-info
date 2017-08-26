@@ -9,8 +9,8 @@
   "scripts": {
     "test": "mocha --compilers js:babel-register",
     "dev": "nodemon lib/server.js --exec babel-node",
-    "build": "babel lib -d dist",
-    "serve": "node dist/server.js"
+    "heroku-postbuild": "babel lib -d dist",
+    "start": "node dist/server.js"
   },
   "author": "",
   "license": "ISC",
