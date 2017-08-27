@@ -25,7 +25,7 @@ For example, requesting info about this repo would look like:
 		"api",
 		...
 	],
-	"readmeTopics": [
+	"readMeTopics": [
 		"api",
 		"github",
 		...
