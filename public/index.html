@@ -4,6 +4,39 @@
 	<title>Repo-Info</title>
 </head>
 <body>
-	<h1>Repo Info</h1>
+	<h1>Purpose</h1>
+	<p>This API is used to gather information about GitHub Repos: it leverages the GitHub API to gather Languages, Dependencies, Topics, and ReadMes. This project was created to provide repo data to <a href="https://github.com/FCC-Alumni/alumni-network">FCC Alumni Network</a>, which FCC graduates can use to find projects to collaborate on.</p>
+	<h1 id="usage">Usage</h1>
+	<p><code>https://repo-info.herokuapp.com/api/{repo-owner}/{repo-name}</code></p>
+	<p>For example, requesting info about this repo would look like:</p>
+	<p><code>https://repo-info.herokuapp.com/api/Christian-Paul/repo-info</code></p>
+	<pre><code>
+	{
+	    &quot;dependencies&quot;: [
+	        &quot;axios&quot;,
+	        &quot;express&quot;,
+	        &quot;mocha&quot;,
+	        ...
+	    ],
+	    &quot;languages&quot;: [
+	        &quot;JavaScript&quot;,
+	        &quot;HTML&quot;,
+	        ...
+	    ],
+	    &quot;topics&quot;: [
+	        &quot;api&quot;,
+	        ...
+	    ],
+	    &quot;readMeTopics&quot;: [
+	        &quot;api&quot;,
+	        &quot;github&quot;,
+	        ...
+	    ]
+	}
+	</code></pre>
+	<h1 id="how-it-works">How it Works</h1>
+	<p>Dependency data is obtained from the GitHub API and is then filtered based on a list of popular dependencies. The list of popular dependencies was obtained <a href="https://gist.github.com/anvaka/8e8fa57c7ee1350e3491#top-1000-most-depended-upon-packages">here</a> and was trimmed down to eliminate redundancies.</p>
+	<p>readMeTopics are obtained by getting ReadMe text from the GitHub API, then detecting the presence of popular topic names, which was obtained <a href="http://www.gitlogs.com/awesome-topics">here</a>. This field detects technical and non-technical information that users may not have added to the repo's official topics, which was a new feature when this API was created.</p>
+	<p>The language and topic data is obtained directly from the GitHub API and is not returned as is.</p>
 </body>
 </html>
