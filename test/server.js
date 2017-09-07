@@ -42,7 +42,7 @@ describe('Repo Info API', () => {
 		})
 	})
 
-	it('sample repo should appropriate data', done => {
+	it('sample repo should return appropriate data', done => {
 		http.get('http://127.0.0.1:8000/api/Christian-Paul/test-repo', res => {
 			let rawData = '';
 
